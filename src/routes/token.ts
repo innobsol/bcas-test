@@ -4,7 +4,7 @@ const tokenRouter = express.Router();
 
 /**
  * @swagger
- * /token/{id}:
+ * /tokens/{id}:
  *  get:
  *    summary: Retrieve a token by it's id
  *    tags: [Token]
@@ -51,7 +51,7 @@ tokenRouter.get('/:id', getToken);
 
 /**
  * @swagger
- * /token/:
+ * /tokens/:
  *  post:
  *    summary: Create a new token
  *    tags: [Token]

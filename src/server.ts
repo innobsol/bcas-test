@@ -15,7 +15,7 @@ async function init() {
 
   app.use(express.json());
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-  app.use('/token', tokenRouter);
+  app.use('/tokens', tokenRouter);
 
   app.listen(port, () => {
     console.log(`[server]: Server is running at http://localhost:${port}`);
