@@ -2,6 +2,8 @@ import express, { Express } from "express";
 import { tokenRouter } from './routes';
 import db from './db';
 import dotenv from 'dotenv';
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSpec } from './utils'
 
 dotenv.config();
 
@@ -12,6 +14,7 @@ async function init() {
   await db.sync();
 
   app.use(express.json());
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
   app.use('/token', tokenRouter);
 
   app.listen(port, () => {
