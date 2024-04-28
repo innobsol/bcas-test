@@ -1,0 +1,28 @@
+services:
+  nodejs:
+    env_file:
+      - .env
+    build:
+      context: ./
+      dockerfile: Dockerfile-dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:15
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: db
+    volumes:
+      - bcas-db-volume:/var/lib/posgresql/data
+
+volumes:
+  bcas-db-volume:
+    driver: local
