@@ -11,6 +11,7 @@ const app: Express = express();
 const port = process.env.PORT || 3000;
 
 async function init() {
+  console.log(`[server] Starting ${process.env.NODE_ENV} environment...`);
   await db.sync();
 
   app.use(express.json());
