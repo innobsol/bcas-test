@@ -18,6 +18,7 @@ const Token = db.define<TokenInstance>('token', {
   ticker: {
     type: STRING,
     allowNull: false,
+    unique: true,
   },
   description: {
     type: STRING,

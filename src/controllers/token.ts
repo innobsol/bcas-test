@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import { Token, TokenSchema } from '../models'
+import { UniqueConstraintError } from 'sequelize';
 
 const getToken = async (req: Request, res: Response, next: NextFunction) => {
   const id = parseInt(req.params.id);
@@ -34,8 +35,16 @@ const addToken = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const savedToken = await Token.create(token);
     return res.status(201).send({ msg: `Created token with ID ${savedToken.dataValues.id}` });
-  } catch (err) {
-    return res.status(500).send({ msg: "Unkown error occured." });
+  } catch (err: unknown) {
+    const queryErr = err as UniqueConstraintError;
+    const { errors } = queryErr;
+    let msg = "Unkown error occured."
+
+    if (errors.length) {
+      msg = errors[0].message
+    }
+
+    return res.status(500).send({ msg });
   }
 }
 
