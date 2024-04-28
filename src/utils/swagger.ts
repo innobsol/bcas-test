@@ -11,6 +11,9 @@ const options = {
     servers: [
       {
         url: 'http://localhost:3000'
+      },
+      {
+        url: 'https://capable-korry-maxbcastest.koyeb.app'
       }
     ]
   },
