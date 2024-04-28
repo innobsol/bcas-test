@@ -33,3 +33,29 @@ const TokenSchema = Joi.object<TokenInstance>({
 
 
 export { Token, TokenSchema };
+
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Token:
+ *       type: object
+ *       required:
+ *         - ticker
+ *         - name
+ *         - description
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: Auto-generated id of the token
+ *         ticker:
+ *           type: string
+ *           description: Token ticker
+ *         name:
+ *           type: string
+ *           description: Token name
+ *         description:
+ *           type: string
+ *           description: Token description          
+ */
