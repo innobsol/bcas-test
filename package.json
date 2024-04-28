@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "npx ts-node-dev src/server.ts",
     "dev": "docker-compose -f docker-compose.yml up",
-    "dev:server": "ts-node-dev -r dotenv/config --no-notify --respawn --transpile-only --exit-child src/server.ts"
+    "dev:server": "ts-node-dev -r dotenv/config --no-notify --respawn --transpile-only --exit-child src/server.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
