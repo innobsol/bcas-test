@@ -1,13 +1,8 @@
 import express from 'express';
-
+import { getToken, addToken } from '../controllers';
 const tokenRouter = express.Router();
 
-tokenRouter.get('/:id', (req, res, next) => {
-  res.send({ test: 'get' })
-});
-
-tokenRouter.post('/', (req, res, next) => {
-  res.send({ test: 'post' })
-});
+tokenRouter.get('/:id', getToken);
+tokenRouter.post('/', addToken);
 
 export { tokenRouter };
