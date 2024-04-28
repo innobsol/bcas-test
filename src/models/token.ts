@@ -1,9 +1,10 @@
 
-import { Optional, STRING, INTEGER } from 'sequelize';
 import db from '../db';
+import Joi from '@hapi/joi'
+import { STRING, INTEGER } from 'sequelize';
 import { TokenInstance } from '../types';
 
-const TokenModel = db.define<TokenInstance>('token', {
+const Token = db.define<TokenInstance>('token', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -22,6 +23,13 @@ const TokenModel = db.define<TokenInstance>('token', {
     type: STRING,
     allowNull: false,
   },
+}, { timestamps: false });
+
+const TokenSchema = Joi.object<TokenInstance>({
+  ticker: Joi.string().min(1).max(6).required(),
+  name: Joi.string().min(1).max(30).required(),
+  description: Joi.string().min(1).max(255).required(),
 });
 
-export default TokenModel;
+
+export { Token, TokenSchema };
