@@ -28,7 +28,7 @@ and decentralized finance operations and grant to their holders certain rights o
 
 ## 2️⃣ Access the deployed server
   The server is live at `https://capable-korry-maxbcastest.koyeb.app/`   
-  Here you can also access the documentation on`/api/docs` page.   
+  Here you can also access the documentation on`/api-docs` page.   
   ❗Please pay attention at the selected server while making requests via Swagger.
 
   The NodeJs app was deployed on `https://www.koyeb.com/` while the database server is provided by `https://www.aiven.io/`
