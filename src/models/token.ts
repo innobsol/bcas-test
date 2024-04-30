@@ -27,9 +27,9 @@ const Token = db.define<TokenInstance>('token', {
 }, { timestamps: false });
 
 const TokenSchema = Joi.object<TokenInstance>({
-  ticker: Joi.string().min(1).max(6).required(),
-  name: Joi.string().min(1).max(30).required(),
-  description: Joi.string().min(1).max(255).required(),
+  ticker: Joi.string().trim().min(1).max(6).required(),
+  name: Joi.string().trim().min(1).max(30).required(),
+  description: Joi.string().trim().min(1).max(255).required(),
 });
 
 
